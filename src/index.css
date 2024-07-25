@@ -52,8 +52,8 @@ header .navbar ul li{
 }
 
 header .navbar ul li a{
-  font-size: 18px;
-  padding: 18px;
+  font-size: 16px;
+  padding: 16px;
   color: var(--black);
   display:block;
   text-transform: capitalize;
@@ -192,15 +192,15 @@ header .control .logo img{
 
 .auth .register{
     background: var(--secondary);
-    font-size: 18px;
-    padding: 18px;
+    font-size: 16px;
+    padding: 16px;
     cursor: pointer;
 }
 
 .auth .login-container{
   background: var(--green);
-  font-size: 18px;
-  padding: 18px;
+  font-size: 16px;
+  padding: 16px;
   cursor: pointer;
 }
 
@@ -328,7 +328,7 @@ left: 50px;
 }
 
 .video-content a{
-font-size: 20px;
+font-size: 18px;
 text-decoration: none;
 padding: 15px 25px;
 transition: 0.3s;
@@ -1311,8 +1311,8 @@ section .box .content .info .time{
     }
 
     header .navbar ul li .anchor, .auth .register, .auth .login-container{
-      font-size: 15px;
-      padding: 15px;
+      font-size: 16px;
+      padding: 16px;
   }
 
     header .control .logo {

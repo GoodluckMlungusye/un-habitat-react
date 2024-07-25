@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Isotope from 'isotope-layout';
+import featuredCourseCategories from '../data/featured_course_categories';
+import featuredCourses from '../data/featured_courses';
 
 const Gallery = () => {
   const galleryRef = useRef(null);
@@ -22,304 +24,38 @@ const Gallery = () => {
     $galleryContainer.current.arrange({ filter: value });
   };
 
+  const buttonGroup = featuredCourseCategories.map((category) => (
+    <button key={category.value} className={`button ${category.value === "*"? "active": " "}`} onClick={() => handleFilter(`${category.value === "*"? "*" : `.${category.value}`}`)}>
+        {category.label}
+    </button>
+  ));
+
+  const galleryItems = featuredCourses.map((featuredCourse) => (
+    <div key={featuredCourse.value} className={`item ${featuredCourse.value}`}>
+        <div className="image">
+            <img src={featuredCourse.image} alt={featuredCourse.value}/>
+        </div>
+        <div className="content">
+            <h4>{featuredCourse.name}</h4>
+            <p>
+                {featuredCourse.description}
+            </p>
+            <div className="info">
+                <span className="view-btn">view</span>
+            </div>
+        </div>
+    </div>
+  ));
+
   return (
     <>
       <div className="button-group">
-        <button className="button active" onClick={() => handleFilter('*')}>
-          all
-        </button>
-        <button className="button" onClick={() => handleFilter('.urban')}>
-          new urban agenda
-        </button>
-        <button className="button" onClick={() => handleFilter('.high')}>
-          measuring sustainable development goals indicators
-        </button>
-        <button className="button" onClick={() => handleFilter('.middle')}>
-          participatory slum upgrading programme
-        </button>
-        <button className="button" onClick={() => handleFilter('.management')}>
-          solid waste management
-        </button>
-        <button className="button" onClick={() => handleFilter('.marketing')}>
-          general
-        </button>
-        <button className="button" onClick={() => handleFilter('.sdg')}>
-          SDG cities learning path
-        </button>
+        {buttonGroup}
       </div>
 
 
       <div ref={galleryRef} className="gallery">
- 
-        <div className="item urban">
-            <div className="image">
-                <img src="/assets/images/courses/1.jpg" alt=""/>
-            </div>
-            <div className="content">
-                <h4>Course One</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div className="info">
-                    <span className="view-btn">view</span>
-                </div>
-            </div>
-        </div>
-        
-            <div className="item urban">
-                <div className="image">
-                    <img src="/assets/images/courses/2.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Two</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item urban">
-                <div className="image">
-                    <img src="/assets/images/courses/3.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Three</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item high">
-                <div className="image">
-                    <img src="/assets/images/courses/4.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course One</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="item high">
-                <div className="image">
-                    <img src="/assets/images/courses/1.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Two</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item high">
-                <div className="image">
-                    <img src="/assets/images/courses/2.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Three</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="item middle">
-                <div className="image">
-                    <img src="/assets/images/courses/3.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course One</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="item middle">
-                <div className="image">
-                    <img src="/assets/images/courses/4.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Two</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item middle">
-                <div className="image">
-                    <img src="/assets/images/courses/1.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Three</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="item management">
-                <div className="image">
-                    <img src="/assets/images/courses/2.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course One</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="item management">
-                <div className="image">
-                    <img src="/assets/images/courses/3.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Two</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item management">
-                <div className="image">
-                    <img src="/assets/images/courses/4.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Three</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item marketing">
-                <div className="image">
-                    <img src="/assets/images/courses/1.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course One</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div className="item marketing">
-                <div className="image">
-                    <img src="/assets/images/courses/2.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Two</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item marketing">
-                <div className="image">
-                    <img src="/assets/images/courses/3.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Three</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item sdg">
-                <div className="image">
-                    <img src="/assets/images/courses/4.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Three</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item sdg">
-                <div className="image">
-                    <img src="/assets/images/courses/1.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course One</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="item sdg">
-                <div className="image">
-                    <img src="/assets/images/courses/2.jpg" alt=""/>
-                </div>
-                <div className="content">
-                    <h4>Course Two</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                    </p>
-                    <div className="info">
-                        <span className="view-btn">view</span>
-                    </div>
-                </div>
-            </div>
+        {galleryItems}
       </div>
     </>
   );
