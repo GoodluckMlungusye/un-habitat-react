@@ -1,4 +1,6 @@
-import { NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom';
+import Copyright from "../components/CopyRight";
+import Footer from "../components/Footer";
 
 export default function RootLayout() {
   return (
@@ -71,6 +73,8 @@ export default function RootLayout() {
         </header>
         <main>
             <Outlet/>
+            <Footer />
+            <Copyright />
         </main>
     </div>
   )

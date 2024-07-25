@@ -2,8 +2,7 @@ import React from "react";
 import Counter from "../components/Counter"
 import Gallery from "../components/FeaturedCourse";
 import VideoContainer from "../components/VideoContainer";
-import Copyright from "../components/CopyRight";
-import Footer from "../components/Footer";
+
 
 export default function Home() {
 
@@ -147,9 +146,6 @@ export default function Home() {
               </div>
           </div>
       </div>
-      <Footer />
-      <Copyright />
-
   </section>
     )
   }

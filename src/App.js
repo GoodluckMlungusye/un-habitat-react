@@ -24,9 +24,6 @@ import RootLayout from "./layouts/RootLayout";
 //formActions
 // import { contactAction } from "./formActions/ContactAction";
 
-//providers
-import ThemeContextProvider from "./contexts/ThemeContext";
-
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout/>}>
@@ -49,9 +46,7 @@ const router = createBrowserRouter(
 
 function App() {
   return (
-    <ThemeContextProvider>
-        <RouterProvider router={router}/>
-    </ThemeContextProvider>
+    <RouterProvider router={router}/>
   );
 }
 
