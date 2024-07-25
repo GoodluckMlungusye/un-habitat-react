@@ -47,11 +47,11 @@ export default function RootLayout() {
                 <nav className="navbar">
                     <ul>
                         <li><NavLink className="anchor" to="/">home</NavLink></li>
-                        <li><NavLink className="anchor" to="/">about</NavLink></li>
+                        <li><NavLink className="anchor" to="about">about</NavLink></li>
                         <li><NavLink className="anchor" to="courses">courses</NavLink></li>
-                        <li><NavLink className="anchor" to="courses">webinars</NavLink></li>
-                        <li><NavLink className="anchor" to="courses">Online Classroom</NavLink></li>
-                        <li><NavLink className="anchor" to="courses">Global Urban Lectures</NavLink></li>
+                        <li><NavLink className="anchor" to="webinars">webinars</NavLink></li>
+                        <li><NavLink className="anchor" to="online">Online Classroom</NavLink></li>
+                        <li><NavLink className="anchor" to="lectures">Global Urban Lectures</NavLink></li>
                         <li><NavLink className="anchor" to="faq">FAQ</NavLink></li>
                     </ul>
                 </nav>

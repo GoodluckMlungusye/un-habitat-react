@@ -64,6 +64,11 @@ header .navbar ul li a:hover{
   color: var(--white);
 }
 
+header .navbar ul li a.active{
+  background: var(--primary);
+  color: var(--white);
+}
+
 #menu-bar{
   display: none;
 }
@@ -1242,6 +1247,11 @@ section .box .content .info .time{
 
 @media (max-width: 991px){ 
 
+  .title .header {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2.5px solid #00b2e3;
+  }
   
   .login-preview{
     font-size: 55%;
@@ -1556,6 +1566,10 @@ section .box .content .info .time{
  }
 
  @media (max-width: 500px) {
+
+  .section{
+    margin-top: 120px;
+  }
 
   header .control .container .search-container input{
     height: 25px;
