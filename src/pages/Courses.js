@@ -1,10 +1,45 @@
 import React from 'react';
+import thematicAreas from '../data/thematic_areas';
+import thematicCategories from '../data/thematic_categories';
+import courses from '../data/courses';
 
 const Courses = () => {
-  return (
-    <section class="section">
 
-    <div class="search-box">
+
+ const thematicOptions = thematicAreas.map((thematic, index) => (
+    <option key={index} value={thematic.value}>{thematic.label}</option>
+ ));
+
+ const thematicCheckBox = thematicCategories.map((thematic, index) => (
+    <div className="checkbox-btn" key={index}>
+        <input type="checkbox" id={thematic.id} name="options" value={thematic.value}/>
+        <label for={thematic.id}>{thematic.label}</label><br/>
+    </div>
+ ));
+
+ const courseArea = courses.map((course, index) => (
+    <div className="box" key={index}>
+        <div className="image">
+            {course.isNew? (<div className="new">NEW</div>) : ('')}
+            <img src={course.image} alt={course.name}/>
+        </div>
+        <div className="content">
+            <h4>{course.name}</h4>
+            <p>
+            {course.description}
+            </p>
+            <div className="info">
+                <span className="date">{course.date}</span>
+                <span className="time">{course.time}</span>
+            </div>
+        </div>      
+    </div>
+ ));
+
+  return (
+    <section className="section">
+
+    <div className="search-box">
         <ul>
             <li><a href="link">Search by keyword</a></li>
             <li><a href="link">Search by thematic area</a></li>
@@ -12,46 +47,25 @@ const Courses = () => {
     </div>
 
     
-    <span class="desc">
+    <span className="desc">
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores recusandae fugit quos. Quis nesciunt dicta vitae! Ipsum ea exercitationem, aperiam asperiores aliquid aliquam 
         sed necessitatibus esse eum quod cumque illo.
     </span>
   
 
-    <div class="wrapper">
+    <div className="wrapper">
 
-        <div class="options">
+        <div className="options">
             <select id="thematic">
                 <option selected>Thematic areas</option>
-                <option value="">General(14)</option>
-                <option value="">Measuring Sustainable Development Goals Indicators (9)</option>
-                <option value="">Solid Waste management (5)</option>
-                <option value="">Training materials (3)</option>
-                <option value="">UN-Habitat staff (1)</option>
-                <option value="">Sustainable urban mobility(2)</option>
-                <option value="">Online classrooms (2)</option>
-                <option value="">Urban climate and environmental action (1)</option>
-                <option value="">SDG Cities Learning Path (3)</option>
+                {thematicOptions}
             </select>
 
-            <div class="checkbox-btn">
-                <input type="checkbox" id="option1" name="options" value="option1"/>
-                <label for="option1">New</label><br/>
-            </div>
-            
-            <div class="checkbox-btn">
-                <input type="checkbox" id="option2" name="options" value="option2"/>
-                <label for="option2">Open</label><br/>
-            </div>
+            {thematicCheckBox}
 
-            <div class="checkbox-btn">
-                <input type="checkbox" id="option3" name="options" value="option3"/>
-                <label for="option3">Certification</label><br/>
-            </div>
-            
         </div>
 
-        <div class="actions">
+        <div className="actions">
             <button>
                 search                    
             </button>
@@ -63,148 +77,14 @@ const Courses = () => {
         
     </div>
 
-    <div class="title">
-        <span class="header">Courses</span>
+    <div className="title">
+        <span className="header">Courses</span>
     </div>
 
-
-    <div class="grid-container">
-
-        <div class="box">
-            <div class="image">
-                <div class="new">NEW</div>
-                <img src="/assets//images/courses/1.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course One</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <div class="new">NEW</div>
-                <img src="/assets//images/courses/2.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Two</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <div class="new">NEW</div>
-                <img src="/assets//images/courses/3.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Three</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <div class="new">NEW</div>
-                <img src="/assets//images/courses/4.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Four</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <img src="/assets//images/courses/4.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Five</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <img src="/assets//images/courses/1.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Six</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <img src="/assets//images/courses/2.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Seven</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
-        <div class="box">
-            <div class="image">
-                <img src="/assets//images/courses/3.jpg" alt=""/>
-            </div>
-            <div class="content">
-                <h4>Course Eight</h4>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, ex! Ea enim at corporis aspernatur quae omnis molestias ipsam ex!
-                </p>
-                <div class="info">
-                    <span class="date">June 2024</span>
-                    <span class="time">1h 40m </span>
-                </div>
-            </div>
-        </div>
-    
+    <div className="grid-container">
+        {courseArea}
     </div>
     
-
 </section>
   )
 }

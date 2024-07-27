@@ -2,12 +2,12 @@ import React from 'react'
 
 function PaceCourse() {
   return (
-    <div class="pace-course">
-        <div class="pace-container">
-            <div class="pace-title">
+    <div className="pace-course">
+        <div className="pace-container">
+            <div className="pace-title">
                 <span>Self-paced courses</span>
             </div>
-            <div class="pace-info">
+            <div className="pace-info">
                 <p>
                     Learn platform offers multilingual self-paced e-learning courses,
                     accessible free of charge online and on the moodle mobile app.
