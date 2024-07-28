@@ -1,8 +1,21 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import Copyright from "../components/CopyRight";
 import Footer from "../components/Footer";
+import { navigate } from '../actions/navigate';
+import navigationLinks from '../data/navigation_links';
+import locales from '../data/locales';
 
 export default function RootLayout() {
+
+
+ const languages = locales.map((locale) => (
+    <li key={locale.label}><a href={locale.href}>{locale.label}</a></li>
+ ));
+
+  const navLinks = navigationLinks.map((link) => (
+    <li key={link.to}>{link.isInnerLink?<NavLink className="anchor" to={link.to}>{link.label}</NavLink> : <a href={link.to}>{link.label}</a>}</li>
+  ));
+
   return (
     <div >
 
@@ -15,14 +28,7 @@ export default function RootLayout() {
                 <div className="container">
                     <div className="locales">
                         <ul>
-                            <li><a href="link">English</a></li>
-                            <li><a href="link">普通话</a></li>
-                            <li><a href="link">Español</a> </li>
-                            <li><a href="link">العربية</a></li>
-                            <li><a href="link">Türkçe</a></li>
-                            <li><a href="link">Français</a></li>
-                            <li><a href="link">Deutsch</a></li>
-                            <li><a href="link">Italiano</a></li>
+                            {languages}
                         </ul>
                   </div>
                     <div className="search-container">
@@ -46,25 +52,19 @@ export default function RootLayout() {
         
                 <nav className="navbar">
                     <ul>
-                        <li><NavLink className="anchor" to="/">home</NavLink></li>
-                        <li><NavLink className="anchor" to="about">about</NavLink></li>
-                        <li><NavLink className="anchor" to="courses">courses</NavLink></li>
-                        <li><NavLink className="anchor" to="webinars">webinars</NavLink></li>
-                        <li><NavLink className="anchor" to="online">Online Classroom</NavLink></li>
-                        <li><NavLink className="anchor" to="lectures">Global Urban Lectures</NavLink></li>
-                        <li><NavLink className="anchor" to="faq">FAQ</NavLink></li>
+                        {navLinks}
                     </ul>
                 </nav>
         
                 <div class="auth">
 
-                    <div class="register">
+                    <div class="register"  onClick={() => navigate('https://learn.unhabitat.org/login/signup.php')}>
                         register    
                     </div>
 
-                    <div class="login-container">
+                    <div class="login-container" onClick={() => navigate('https://learn.unhabitat.org/login/index.php')}>
                         <div class="login" data-name="l-1">
-                        Login
+                          Login
                         </div>
                     </div>
 

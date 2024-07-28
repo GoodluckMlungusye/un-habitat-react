@@ -6,7 +6,6 @@ import About from "./pages/About";
 import Courses from "./pages/Courses";
 import Webinars from "./pages/Webinars";
 import Online from "./pages/Online";
-import Lectures from "./pages/Lectures";
 import FAQ from "./pages/FAQ";
 
 // import Faq from "./pages/help/Faq";
@@ -36,7 +35,6 @@ const router = createBrowserRouter(
       <Route path="courses" element={<Courses/>}/>
       <Route path="webinars" element={<Webinars/>}/>
       <Route path="online" element={<Online/>}/>
-      <Route path="lectures" element={<Lectures/>}/>
       <Route path="faq" element={<FAQ/>}/>
       
       {/* <Route path="help" element={<HelpLayout/>}>

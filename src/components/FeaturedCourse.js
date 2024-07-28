@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Isotope from 'isotope-layout';
 import featuredCourseCategories from '../data/featured_course_categories';
 import featuredCourses from '../data/featured_courses';
@@ -6,6 +6,7 @@ import featuredCourses from '../data/featured_courses';
 const Gallery = () => {
   const galleryRef = useRef(null);
   const $galleryContainer = useRef(null);
+  const [activeValue, setActiveValue] = useState('*')
 
   useEffect(() => {
     // Initialize Isotope when component mounts
@@ -20,12 +21,13 @@ const Gallery = () => {
     };
   }, []);
 
-  const handleFilter = (value) => {
+  const handleFilter = (value, active) => {
     $galleryContainer.current.arrange({ filter: value });
+    setActiveValue(active);
   };
 
   const buttonGroup = featuredCourseCategories.map((category) => (
-    <button key={category.value} className={`button ${category.value === "*"? "active": " "}`} onClick={() => handleFilter(`${category.value === "*"? "*" : `.${category.value}`}`)}>
+    <button key={category.value} className={`button ${activeValue === category.value? "active": " "}`} onClick={() => handleFilter(`${category.value === "*"? "*" : `.${category.value}`}`, category.value)}>
         {category.label}
     </button>
   ));

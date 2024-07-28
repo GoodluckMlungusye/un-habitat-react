@@ -9,7 +9,7 @@ const VideoContainer = () => {
 
       <div className="video-content">
         <a href="link">Explore our courses</a>
-        <a href="link">Register</a>
+        <a href="https://learn.unhabitat.org/login/signup.php">Register</a>
       </div>
     </div>
   );

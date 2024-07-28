@@ -567,37 +567,70 @@ font-weight: 600;
 color: var(--primary);
 }
 
-.pace-course{
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 20px;
-padding: 30px 8%;
+.pace-container {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-between;
+  padding: 30px 8%; 
+  background: var(--body-clr)
 }
 
-.pace-container{
-display: flex;
-align-items: center;
-justify-content: space-between;
-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-padding-bottom: 20px;
-padding-left: 10px;
-padding-right: 30px; 
+.pace-container svg{
+  width: 50px;
+  height: 50px; 
 }
 
-.pace-title{
-font-size: 30px;
-font-weight: 500;
-text-align: start;
-width: 40%;
+.pace-view{
+ flex: 6;
+ background: var(--white);
+ padding: 20px;
+ box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.pace-info{
-width: 60%;
-text-align: start;
+.pace-view p{
+  line-height: 26px;
+ }
+
+ .pace-view .info-item .view-head{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 10px;
+ }
+
+ .pace-view span{
+  font-size: 30px;
+  font-weight: 500;
+  margin-left: 20px;
+ }
+
+.pace-selector{
+  flex: 4;
+  justify-content: flex-end;
+ }
+
+ .pace-selector .selector-head{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: var(--primary);
+    margin-bottom: 10px;
+    color: var(--white);
+    cursor: pointer;
+ }
+
+ .pace-selector .selector-head.active{
+    background: var(--body-clr);
+    color: var(--black);
 }
 
-.pace-info p, .faq-ans{
+ .pace-selector .selector-head svg{
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+ 
+.faq-ans{
 line-height: 26px;
 }
 
@@ -1163,6 +1196,7 @@ section .box .content .info .time{
 
 
 
+
 /* RESPONSIVE DESIGN */
 
 @media (max-width: 1222px){ 
@@ -1371,6 +1405,11 @@ section .box .content .info .time{
 }
 
 @media (max-width: 968px){ 
+
+  .pace-selector .selector-head{
+    justify-content: center;
+ }
+
   .webinar-wrapper{
     flex-direction: column;
  }
@@ -1385,23 +1424,8 @@ section .box .content .info .time{
 .pace-container{
   flex-direction: column;
   justify-content: center;
-  margin-left: 0px;
-  margin-right: 0px;
-  padding-left: 0px;
-  padding-right: 0px;
 }
 
- .pace-title{
-  text-align: center;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.pace-info{
-  width: 100%;
-  padding: 0 50px;
-}
- 
 }
 
 @media (max-width: 943px){ 
@@ -1567,6 +1591,15 @@ section .box .content .info .time{
 
  @media (max-width: 500px) {
 
+  .pace-view .info-item .view-head svg{
+      width: 35px;
+      height: 35px;
+  }
+
+  .pace-view .info-item .view-head span{
+    font-size: 25px;
+}
+
   .section{
     margin-top: 120px;
   }
@@ -1663,15 +1696,6 @@ section .box .content .info .time{
 
   .hero-info .counter-wrapper .counter  span:nth-child(1){
     font-size: 20px; 
-  }
-
-  .pace-title{
-    font-size: 20px;
-    font-weight: 600;
-  }
-  
-  .pace-info{
-    font-size: 13px;
   }
 }
 
