@@ -4,6 +4,7 @@ import Hero from "../components/Hero";
 import Portfolio from "../components/Portfolio";
 import PaceCourse from "../components/PaceCourse";
 import HomeWebinars from "../components/HomeWebinars";
+import Testimonials from "../components/Testimonials";
 import Social from "../components/Social";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
             <Portfolio/>
             <PaceCourse/>
             <HomeWebinars/>
+            <Testimonials/>
             <Social/>
         </section>
     )
