@@ -530,9 +530,14 @@ color: var(--primary);
     cursor: pointer;
  }
 
-.selector-head-active{
+.selector-head.active{
     background: var(--body-clr);
     color: var(--black);
+}
+
+.selector-head:hover{
+  background: var(--body-clr);
+  color: var(--black);
 }
 
  .pace-selector .selector-head svg{
