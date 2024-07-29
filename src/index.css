@@ -197,6 +197,13 @@ header .control .logo img{
     cursor: pointer;
 }
 
+.auth .login-container{
+  background: var(--green);
+  font-size: 16px;
+  padding: 16px;
+  cursor: pointer;
+}
+
 .video-container {
 position: relative;
 width: 100%;
@@ -480,7 +487,7 @@ color: var(--primary);
  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.preview{
+.pace-view.active{
   opacity: 0; 
   transform: translateY(30px);
   animation: fadeInUp 1s forwards;
