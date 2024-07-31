@@ -498,11 +498,23 @@ color: var(--primary);
   margin-left: 5rem;
  }
 
+ .pace-view .pace-link{
+  margin-left: 5rem;
+  margin-top: 1rem;
+ }
+
+ 
+ .pace-view .pace-link a{
+  text-decoration: underline;
+  color: var(--secondary);
+ }
+
  .pace-view .view-head{
     display: flex;
     justify-content: start;
     align-items: center;
     margin-bottom: 10px;
+    color: var(--primary);
  }
 
  @keyframes fadeInUp {
