@@ -1,12 +1,25 @@
+import React, { useState } from "react";
 import { NavLink, Outlet } from 'react-router-dom';
 import Copyright from "../components/CopyRight";
 import Footer from "../components/Footer";
+import LoginModal from "../components/LoginModal";
 import { navigate } from '../actions/navigate';
 import navigationLinks from '../data/navigation_links';
 import locales from '../data/locales';
 
 export default function RootLayout() {
 
+    const [modal, setModal] = useState(false);
+
+    const toggleModal = () => {
+      setModal(!modal);
+    };
+  
+    if(modal) {
+      document.body.classList.add('active-modal')
+    } else {
+      document.body.classList.remove('active-modal')
+    }
 
  const languages = locales.map((locale) => (
     <li key={locale.label}><a href={locale.href}>{locale.label}</a></li>
@@ -62,8 +75,8 @@ export default function RootLayout() {
                         register    
                     </div>
 
-                    <div class="login-container" onClick={() => navigate('https://learn.unhabitat.org/login/index.php')}>
-                        <div class="login" data-name="l-1">
+                    <div class="login-container" onClick={toggleModal}>
+                        <div class="login">
                           Login
                         </div>
                     </div>
@@ -74,7 +87,18 @@ export default function RootLayout() {
         <main>
             <Outlet/>
             <Footer />
-            <Copyright />
+            <Copyright/>
+            {modal &&
+                <div className="modal">
+                    <div onClick={toggleModal} className="overlay"></div>
+                    <div className="modal-content">
+                        <LoginModal/>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="close-modal" onClick={toggleModal}>
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                        </svg>
+                    </div>
+                </div>
+             }
         </main>
     </div>
   )

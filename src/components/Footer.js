@@ -1,6 +1,22 @@
+import { NavLink } from 'react-router-dom';
 import React from 'react';
+import navigationLinks from '../data/navigation_links';
+import footerLinks from '../data/footer_links';
 
 const Footer = () => {
+
+  const navLinks = navigationLinks.slice(1).map((link) => (
+    <span key={link.to}>{link.isInnerLink?<NavLink to={link.to}>{link.label}</NavLink> : <a href={link.to}>{link.label}</a>}</span>
+  ));
+
+  const footLinks = footerLinks.map((footerLink) => (
+      <div key={footerLink.label}>
+        <a href={footerLink.link}>
+          <img src={`/assets/icons/${footerLink.icon}`} alt={footerLink.label}/>
+        </a>
+    </div>
+  ));
+
   return (
     <div className="footer">
       <div className="links">
@@ -29,11 +45,7 @@ const Footer = () => {
 
         <div className="footer-nav-links">
           <span className="footer-title">Important Links</span>
-          <span><a href="link">Home</a></span>
-          <span><a href="link">About</a></span>
-          <span><a href="course.html">Courses</a></span>
-          <span><a href="link">Webinars</a></span>
-          <span><a href="faq.html">FAQ</a></span>
+          {navLinks}
         </div>
 
         <div className="footer-newsletter">
@@ -43,21 +55,7 @@ const Footer = () => {
             <button>Subscribe</button>
           </div>
           <div className="social-wrapper">
-            <div>
-              <a href="https://www.facebook.com/UNHABITAT/">
-                <img src="/assets/icons/facebook.png" alt="Facebook" />
-              </a>
-            </div>
-            <div>
-              <a href="https://linkedin.com/company/un-habitat-united-nation-human-settlements-programme-">
-                <img src="/assets/icons/linkedin.png" alt="LinkedIn" />
-              </a>
-            </div>
-            <div>
-              <a href="https://twitter.com/UNHABITAT">
-                <img src="/assets/icons/x.png" alt="Twitter" />
-              </a>
-            </div>
+            {footLinks}
           </div>
         </div>
       </div>

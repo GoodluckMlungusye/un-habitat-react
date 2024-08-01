@@ -897,8 +897,9 @@ flex-direction: column;
 }
 
 .footer-nav-links{
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  text-transform: capitalize;
 }
 
 .footer-newsletter{
@@ -1751,7 +1752,126 @@ section .box .content .info .time{
 }
 
 
+/* LOGIN POPUP */
 
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.modal, .overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 2000;
+}
+
+.overlay {
+  background: rgba(49,49,49,0.8);
+}
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: var(--white);
+  padding: 14px 28px;
+  width: 25rem;
+  z-index: 3000;
+}
+
+.modal-content h3{
+  color:var(--black);
+  padding:.5rem 0;
+  font-size: 1.3rem;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.modal-content p{
+  font-size: 0.8rem;
+  color:#777;
+}
+
+.modal-content .par1, .par2{
+  padding-top: 5px;
+}
+
+.modal-content .par1{
+  color: var(--green);
+  margin-bottom: 5px;
+}
+
+.modal-content .user-par{
+  color: var(--green);
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.form-container  input:focus {
+outline: none; 
+border: none; 
+}
+
+.form-container input[type="email"],
+.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.form-container input[type="submit"] {
+  padding:0.8rem;
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.form-container input[type="submit"]:hover {
+  background-color: var(--white);
+  border: 1px solid var(--green);
+  color: var(--green);
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+  width: 40px;
+  height: 40px; 
+  cursor: pointer;
+}
+
+@media (max-width: 991px){ 
+
+  .modal-content {
+      width: 18rem;
+      line-height: 0.8;
+  }
+
+  .modal-content .par1, .par2{
+      line-height: 15px;
+   }
+
+   .form-container input[type="submit"] {
+      padding:0.8rem;
+   }
+}
 
 
 
