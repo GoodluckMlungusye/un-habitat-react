@@ -40,7 +40,7 @@ function PaceCourse() {
                 <span>{currentLabel}</span>
             </div>
             <p>{currentDescription}</p>
-            {currentLink.length > 0 && <div className='pace-link'><a href={currentLink}>Watch the series</a></div>}
+            {currentLink.length > 0 && <div className='pace-link'><a href={currentLink} target="_blank" rel="noopener noreferrer">Watch the series</a></div>}
         </div>
         <div className="pace-selector">
             {paceSelector}
