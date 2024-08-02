@@ -35,7 +35,7 @@ function useFetch(wsfunction) {
             }
         }
         fetchData()
-    }, []);
+    }, [wsfunction]);
 
     return { results, isLoading, errorMessage}
 }
