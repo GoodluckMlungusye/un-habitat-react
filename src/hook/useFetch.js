@@ -1,36 +1,44 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// import duftApiService from "src/duft/services/duftApiService";
+import apiService from "../services/api-services";
+import { DEFAULT_QUERY_PARAMS } from "../auth/api";
 
-// function RunQuery(query, connectionId) {
+function useFetch(wsfunction) {
 
-//     const [results, setResults] = useState({})
-//     const [isLoading, setIsLoading] = useState(false);
-//     const [errorMessage, setErrorMessage] = useState('');
-//     const body = {
-//         query,
-//         data_connection_id: connectionId
-//     };
+    const [results, setResults] = useState([])
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
 
-//     const displayResults = async () => {
-//         try {
-//             setIsLoading(true);
-//             const response = await duftApiService.runQuery(body);
-//             if (response.status !== 200) {
-//                 throw new Error(response.message);
-//             } else {
-//                 setErrorMessage('');
-//                 setResults(response);
-//             }
-//         } catch (error) {
-//             setErrorMessage(error.message);
-//             setResults({});
-//         } finally {
-//             setIsLoading(false);
-//         }
-//     }
+     useEffect(() => {
 
-//     return { results, isLoading, errorMessage, displayResults }
-// }
+        const queryParams = {
+            wstoken: DEFAULT_QUERY_PARAMS.wstoken,
+            wsfunction,
+            moodlewsrestformat: DEFAULT_QUERY_PARAMS.moodlewsrestformat
+        };
+    
+        const fetchData = async () => {
+            try {
+                setIsLoading(true);
+                const response = await apiService.getData(queryParams);
+                if (response.status !== 200) {
+                    throw new Error(response.message);
+                } else {
+                    setErrorMessage('');
+                    setResults(response);
+                }
+            } catch (error) {
+                setErrorMessage(error.message);
+                setResults({});
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        fetchData()
+    }, []);
 
-// export default RunQuery;
+    return { results, isLoading, errorMessage}
+}
+
+export default useFetch;
+

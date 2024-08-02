@@ -1,9 +1,11 @@
 import axiosInstance from "../utils/axios-instance";
+import { API_AUTH_PARAMS } from "../auth/api";
 
 const apiService = {
+  
     postData: async (payload) => {
       try {
-        const response = await axiosInstance.post('/api', payload);
+        const response = await axiosInstance.post(API_AUTH_PARAMS.endPoint, payload);
         return response;
       } catch (error) {
         console.error('Error posting data:', error);
@@ -11,25 +13,15 @@ const apiService = {
       }
     },
   
-    getCourse: async (categoryId) => {
+    getData: async (queryParams) => {
       try {
-        const response = await axiosInstance.get(`/api/${categoryId}`);
+        const response = await axiosInstance.get(API_AUTH_PARAMS.endPoint, queryParams);
         return response;
       } catch (error) {
-        console.error(`Error fetching course with categoryId ${categoryId}:`, error);
+        console.error('Error fetching data:', error);
         throw error;
       }
-    },
-  
-    getCourses: async () => {
-      try {
-        const response = await axiosInstance.get('/api');
-        return response;
-      } catch (error) {
-        console.error('Error fetching courses:', error);
-        throw error;
-      }
-    },
+    }
   };
   
   export default apiService;

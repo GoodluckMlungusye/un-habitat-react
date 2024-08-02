@@ -6,8 +6,13 @@ import LoginModal from "../components/LoginModal";
 import { navigate } from '../actions/navigate';
 import navigationLinks from '../data/navigation_links';
 import locales from '../data/locales';
+import useFetch from "../hook/useFetch";
 
 export default function RootLayout() {
+
+    // courses = core_course_get_courses
+    // categories = core_course_get_categories
+    const { results, isLoading, errorMessage} = useFetch('core_course_get_courses');
 
     const [modal, setModal] = useState(false);
 
@@ -28,6 +33,10 @@ export default function RootLayout() {
   const navLinks = navigationLinks.map((link) => (
     <li key={link.to}>{link.isInnerLink?<NavLink className="anchor" to={link.to}>{link.label}</NavLink> : <a href={link.to}>{link.label}</a>}</li>
   ));
+
+  console.log("RESULTS: ", results);
+  console.log("LOADING: ", isLoading);
+  console.log("ERROR: ", errorMessage);
 
   return (
     <div >

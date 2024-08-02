@@ -1,12 +1,10 @@
 import axios from 'axios';
-
-const apiUrl = '';
+import { API_AUTH_PARAMS } from '../auth/api';
 
 const axiosInstance = axios.create({
-  baseURL: apiUrl,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: '/api', 
+  headers: API_AUTH_PARAMS.headers,
+  auth: API_AUTH_PARAMS.auth
 });
 
 export default axiosInstance;
