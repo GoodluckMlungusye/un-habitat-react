@@ -1,11 +1,10 @@
 import axiosInstance from "../utils/axios-instance";
-import { API_AUTH_PARAMS } from "../auth/api";
+import { API_PARAMS } from "../params/api";
 
 const apiService = {
-  
     postData: async (payload) => {
       try {
-        const response = await axiosInstance.post(API_AUTH_PARAMS.endPoint, payload);
+        const response = await axiosInstance.post(API_PARAMS.endPoint, payload);
         return response;
       } catch (error) {
         console.error('Error posting data:', error);
@@ -15,7 +14,7 @@ const apiService = {
   
     getData: async (queryParams) => {
       try {
-        const response = await axiosInstance.get(API_AUTH_PARAMS.endPoint, queryParams);
+        const response = await axiosInstance.get(API_PARAMS.endPoint, queryParams);
         return response;
       } catch (error) {
         console.error('Error fetching data:', error);

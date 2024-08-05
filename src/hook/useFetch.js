@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
-
 import apiService from "../services/api-services";
-import { DEFAULT_QUERY_PARAMS } from "../auth/api";
+import { DEFAULT_QUERY_PARAMS } from "../params/query";
 
 function useFetch(wsfunction) {
 
