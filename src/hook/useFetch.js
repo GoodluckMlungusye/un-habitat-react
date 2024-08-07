@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import apiService from "../services/api-services";
-import { DEFAULT_QUERY_PARAMS } from "../params/query";
 
 function useFetch(wsfunction) {
 
@@ -9,26 +8,19 @@ function useFetch(wsfunction) {
     const [errorMessage, setErrorMessage] = useState('');
 
      useEffect(() => {
-
-        const queryParams = {
-            wstoken: DEFAULT_QUERY_PARAMS.wstoken,
-            wsfunction,
-            moodlewsrestformat: DEFAULT_QUERY_PARAMS.moodlewsrestformat
-        };
-    
         const fetchData = async () => {
             try {
                 setIsLoading(true);
-                const response = await apiService.getData(queryParams);
+                const response = await apiService.getData(wsfunction)
                 if (response.status !== 200) {
-                    throw new Error(response.message);
+                    throw new Error("Error fetching data");
                 } else {
                     setErrorMessage('');
-                    setResults(response);
+                    setResults(response.data);
                 }
             } catch (error) {
                 setErrorMessage(error.message);
-                setResults({});
+                setResults([]);
             } finally {
                 setIsLoading(false);
             }

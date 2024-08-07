@@ -842,11 +842,10 @@ font-weight: lighter;
 }
 
 .footer{
-display: flex;
-flex-direction: column;
-align-items: center;
-background-color: var(--body-clr);
-padding: 50px 150px;
+  display: flex;
+  align-items: center;
+  background-color: var(--body-clr);
+  padding: 30px 8%;
 }
 
 .links {
@@ -855,34 +854,18 @@ grid-template-columns: repeat(4, 1fr);
 gap: 20px;
 }
 
-.owner-info{
-display: flex;
-flex-direction: column;
-justify-content: flex-start;
-}
-
-.wrap{
-display: flex;
-align-items: center;
-
-}
-
-.wrap-desc{
-margin-top: 10px;
-line-height: 26px;
+.owner-logo{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .links span{
   padding: 4px 0px;
 }
 
-.owner-info .wrap-desc p{
-  line-height: 26px;
-}
-
-.wrap img{
-width: 35px;
-margin-right: 10px;
+.owner-logo img{
+  width: 100px;
 }
 
 .footer-title{
@@ -912,12 +895,14 @@ display: flex;
 align-items: center;
 justify-content: flex-start;
 margin-bottom: 20px; 
+width: 100%;
 }
 
 .social-wrapper{
-display: flex;
-align-items: center;
-justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .social-wrapper div{
@@ -931,6 +916,7 @@ text-decoration: none;
 .news-wrapper input{
 border: 1px solid var(--primary);
 padding: 8px 18px;
+flex: 7;
 }
 
 .news-wrapper button{
@@ -939,6 +925,7 @@ padding: 10px 20px;
 border: none;
 color: var(--white);
 font-weight: 600;
+flex: 3;
 }
 
 .social-wrapper div{
@@ -959,9 +946,12 @@ height: 30px;
 background: var(--primary);
 display: flex;
 align-items: flex-start;
-padding: 10px 150px;
 color: var(--white);
 }
+
+.copyright p{
+  padding: 5px 10px;
+  }
 
 /* COURSES */
 
@@ -1432,7 +1422,7 @@ section .box .content .info .time{
 @media (max-width: 841px) {
   .links {
        grid-template-columns: 1fr;
- }
+  }
 }
 
 @media (max-width: 830px) {

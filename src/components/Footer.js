@@ -20,17 +20,8 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="links">
-        <div className="owner-info">
-          <div className="wrap">
+        <div className="owner-logo">
             <img src="/assets/images/logo/un_habitat.png" alt="UN Habitat Logo" />
-            <span className="footer-title">uN-habitat</span>
-          </div>
-          <div className="wrap-desc">
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus accusamus rerum vero laboriosam
-              voluptate sequi, at soluta quis numquam dolore! Doloribus accusamus rerum vero laboriosam
-            </p>
-          </div>
         </div>
 
         <div className="office">

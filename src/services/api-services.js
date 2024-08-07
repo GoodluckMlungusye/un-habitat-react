@@ -1,26 +1,28 @@
-import axiosInstance from "../utils/axios-instance";
 import { API_PARAMS } from "../params/api";
+import { DEFAULT_QUERY_PARAMS } from "../params/query";
+import axios from 'axios';
 
 const apiService = {
-    postData: async (payload) => {
+
+    getData: async (wsfunction) => {
+      const queryParams = {
+        wstoken: DEFAULT_QUERY_PARAMS.wstoken,
+        wsfunction,
+        moodlewsrestformat: DEFAULT_QUERY_PARAMS.moodlewsrestformat
+      };
       try {
-        const response = await axiosInstance.post(API_PARAMS.endPoint, payload);
+        const response = await axios.get(API_PARAMS.endPoint, {
+          params: queryParams,
+          headers: API_PARAMS.headers
+        });
         return response;
-      } catch (error) {
-        console.error('Error posting data:', error);
-        throw error;
       }
-    },
-  
-    getData: async (queryParams) => {
-      try {
-        const response = await axiosInstance.get(API_PARAMS.endPoint, queryParams);
-        return response;
-      } catch (error) {
+      catch (error) {
         console.error('Error fetching data:', error);
         throw error;
       }
     }
+    
   };
   
   export default apiService;

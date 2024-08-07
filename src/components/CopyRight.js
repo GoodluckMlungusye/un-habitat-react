@@ -5,7 +5,7 @@ const Copyright = () => {
 
   return (
     <div className="copyright">
-      <p>&copy;<span id="copyright">{currentYear} United Nations Human Settlements Programme</span></p>
+      <p>&copy;<span id="copyright">{currentYear} UN-Habitat Learn. All rights reserved. Designed by Amani Minja Jackson.</span></p>
     </div>
   );
 };
