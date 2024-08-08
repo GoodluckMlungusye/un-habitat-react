@@ -6,6 +6,7 @@ import LoginModal from "../components/LoginModal";
 import { navigate } from '../actions/navigate';
 import navigationLinks from '../data/navigation_links';
 import locales from '../data/locales';
+import { ASSET_URL } from "../constants/links";
 
 export default function RootLayout() {
 
@@ -35,7 +36,7 @@ export default function RootLayout() {
         <header>
             <div className="control">
                 <div className="logo">
-                    <img src="/assets/images/logo/logo.png" alt="un_habitat"/>
+                    <img src={`${ASSET_URL}/logo/logo.png`} alt="un_habitat"/>
                 </div>
                 
                 <div className="container">

@@ -6,7 +6,7 @@ const FAQ = () => {
   const faqBlock = faqs.map((faq,index) => (
     <div className="faq-container" key={index}>
         <div className="faq-item">
-            <span className="faq-qn">{faq.question}</span>
+            <p className="faq-qn">{faq.question}</p>
             <p className="faq-ans">{faq.answer}</p>
         </div>
     </div>

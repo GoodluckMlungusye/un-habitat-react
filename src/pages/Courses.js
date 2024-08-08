@@ -6,22 +6,25 @@ import useFetch from '../hook/useFetch';
 import formatParagraph from '../actions/formatParagraph';
 import truncateParagraph from '../actions/truncateParagraph';
 import formatDate from '../actions/formatDate';
+import { LATEST_DATE_CRITERIA } from '../constants/misc';
+import { LOADING_SPINNER_COLORS } from '../constants/misc';
+import { showCourse } from '../actions/showCourse';
+import { ASSET_URL } from '../constants/links';
 
 const Courses = () => {
-
     // courses = core_course_get_courses
     // categories = core_course_get_categories
     const { results, isLoading, errorMessage} = useFetch("core_course_get_courses");
 
     const [currentPage, setCurrentPage] = useState(1);
-    const cutoffDate = new Date('2023-01-01T00:00:00Z').getTime() / 1000; 
+    const cutoffDate = new Date(LATEST_DATE_CRITERIA).getTime() / 1000; 
     const ITEMS_PER_PAGE = 8;
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
     const endIndex = startIndex + ITEMS_PER_PAGE;
 
     const sortedResults = results
-    .filter(course => course.summary && course.summary.length > 0)
-    .sort((a, b) => b.timecreated - a.timecreated);
+    .filter(course => course.summary && course.summary.length > 0 && course.visible === 1)
+    .sort((a, b) => b.startdate - a.startdate);
 
     const totalPages = results && results.length > 0 &&  Math.ceil(sortedResults.length / ITEMS_PER_PAGE);
 
@@ -51,19 +54,26 @@ const Courses = () => {
     ));
 
     const courseArea = results && results.length > 0 && currentCourses.map((course) => {
-            const isNew = course.timecreated > cutoffDate;
+            const isNew = course.startdate > cutoffDate;
             return (
-                <div className="box" key={course.id}>
+                <div className="box" key={course.id} onClick={() => showCourse(course.id)}>
                     <div className="image">
-                        {isNew ? <div className="new">NEW</div> : null}
-                        <img src="/assets/images/courses/pic.jpg" alt={course.displayname} />
+                        {
+                            isNew ? 
+                            <div class="arrow">
+                                <span class="arrow-text">NEW</span>
+                            </div>
+                            : 
+                            null
+                        }
+                        <img src={`${ASSET_URL}/courses/pic.jpg`} alt={course.displayname} />
                     </div>
                     <div className="content">
                         <h4>{course.displayname}</h4>
                         <p>{truncateParagraph(formatParagraph(course.summary), 20)}</p>
                         <div className="info">
-                            <span className="date">{formatDate(course.timecreated)}</span>
-                            <span className="time">1h 40m</span>
+                            <span className="date">{formatDate(course.startdate)}</span>
+                            <span className="readmore">read more</span>
                         </div>
                     </div>
                 </div>
@@ -84,7 +94,7 @@ const Courses = () => {
                         ariaLabel="vortex-loading"
                         wrapperStyle={{}}
                         wrapperClass="vortex-wrapper"
-                        colors={['#00b2e3', '#00689D', '#00AFAA', '#fd9d24', '#ff7276', '#f6f9fe']}
+                        colors={LOADING_SPINNER_COLORS}
                     />
                 </div>
              </div>

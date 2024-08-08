@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { ASSET_URL } from '../constants/links'
 function Social() {
   return (
     <div className="social">
@@ -25,8 +25,8 @@ function Social() {
         </div>
         <div className="mobile-desc"><span>Access learning at a touch of a button</span></div>
         <div className="mobile-block">
-            <img src="/assets/images/extras/google.png" alt="google"/>
-            <img src="/assets/images/extras/apple.png" alt="apple"/>
+            <img src={`${ASSET_URL}/extras/google.png`} alt="google"/>
+            <img src={`${ASSET_URL}/extras/apple.png`} alt="apple"/>
         </div>
     </div>
 </div>

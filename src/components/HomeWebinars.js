@@ -1,5 +1,6 @@
-import React from 'react'
-import webinars from '../data/webinars'
+import React from 'react';
+import webinars from '../data/webinars';
+import { ASSET_URL } from '../constants/links';
 
 function HomeWebinars() {
   
@@ -36,7 +37,7 @@ function HomeWebinars() {
     <div className="webinars">
     <div className="portfolio-header"><span>Technical Webinars</span></div>
     <div className="webinar-wrapper">
-        <div className="webinar-img"><img src={`/assets/images/extras/${webinarImage}`} alt=""/></div>
+        <div className="webinar-img"><img src={`${ASSET_URL}/extras/${webinarImage}`} alt=""/></div>
         <div className="webinar-content">
             {webinarContent}
         </div>

@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import React from 'react';
 import navigationLinks from '../data/navigation_links';
 import footerLinks from '../data/footer_links';
+import { ASSET_URL } from '../constants/links';
 
 const Footer = () => {
 
@@ -21,7 +22,7 @@ const Footer = () => {
     <div className="footer">
       <div className="links">
         <div className="owner-logo">
-            <img src="/assets/images/logo/un_habitat.png" alt="UN Habitat Logo" />
+            <img src={`${ASSET_URL}/logo/un_habitat.png`} alt="UN Habitat Logo" />
         </div>
 
         <div className="office">
