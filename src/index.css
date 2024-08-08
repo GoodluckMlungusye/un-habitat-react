@@ -1119,25 +1119,30 @@ section .box .content h4{
 section .box .content p{
   text-align: left;
   font-size: 16px;
-  letter-spacing: 1px;
+  letter-spacing: 0.8px;
+  margin-bottom: 20px;
 }
 
 section .box .content .info{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
   font-weight: 500;
 }
 
 
 section .box .content .info .date{
   text-transform: uppercase;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 section .box .content .info .time{
   text-transform: capitalize;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 600;
 }
 
 
@@ -1146,6 +1151,22 @@ section .box .content .info .time{
   grid-template-columns: repeat(4, 1fr); 
   gap: 20px; 
   margin-top: 20px;
+}
+
+.pagination-controls{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.pagination-controls button{
+  border: none;
+  padding: 5px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+  background: var(--green);
+  color: var(--white);
 }
 
 
@@ -1851,6 +1872,29 @@ border: none;
   cursor: pointer;
 }
 
+.loader{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 100px;
+  background: var(--body-clr);
+  z-index: 2000;
+  padding-top: 20rem;
+}
+
+.loader p{
+  color: red;
+  font-size: larger;
+}
+
+.loader .spinner, p{
+  text-align: center;
+}
+
 @media (max-width: 991px){ 
 
   .modal-content {
@@ -1866,6 +1910,16 @@ border: none;
       padding:0.8rem;
    }
 }
+
+
+@media (max-height: 660px){ 
+  .loader{
+    padding-top: 15rem;
+  }
+} 
+
+
+
 
 
 
