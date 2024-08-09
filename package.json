@@ -1,4 +1,5 @@
 {
+  "homepage": "https://goodluckmlungusye.github.io/un-habitat-react",
   "name": "un-habitat",
   "version": "0.1.0",
   "private": true,
@@ -44,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
