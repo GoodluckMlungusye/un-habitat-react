@@ -13,9 +13,9 @@ export default function Home() {
             <VideoContainer />
             <Hero/>
             <Portfolio/>
+            <Testimonials/>
             <PaceCourse/>
             <HomeWebinars/>
-            <Testimonials/>
             <Social/>
         </section>
     )

@@ -495,6 +495,7 @@ color: var(--primary);
 .pace-view p{
   line-height: 26px;
   margin-left: 5rem;
+  text-align: left;
  }
 
  .pace-view .pace-link{
@@ -941,6 +942,7 @@ border: none;
 color: var(--white);
 font-weight: 600;
 flex: 3;
+width: 100px;
 }
 
 .social-wrapper div{
@@ -1097,23 +1099,20 @@ section .box{
   margin: auto;
   margin-top: 20px;
   top: 0;
-  left: 0;
+  left: 10px;
   line-height: 35px; 
   text-align: center; 
   color: white;
   display: inline-block;
   padding: 0 15px;
   border-radius: 0;
-  border-radius: 0 20px 20px 0;
+  border-radius: 20px;
 }
 
 .label-text {
   position: relative;
   z-index: 1;
-  left: -8px;
 }
-
-
 
 .arrow {
   width: 50px;
@@ -1251,7 +1250,7 @@ section .box .content .info .readmore{
   font-weight: bold;
   font-size: 15px;
   text-align: left;
-  margin: 8px;
+  margin: 10px;
 }
 
 .faq-container .faq-ans{

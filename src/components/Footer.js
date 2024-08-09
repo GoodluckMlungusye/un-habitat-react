@@ -43,8 +43,8 @@ const Footer = () => {
         <div className="footer-newsletter">
           <span className="footer-title">Newsletter</span>
           <div className="news-wrapper">
-            <input type="text" placeholder="Email Address" />
-            <button>Subscribe</button>
+            <input type="text" placeholder="Type your email" />
+            <button>Sign Up</button>
           </div>
           <div className="social-wrapper">
             {footLinks}

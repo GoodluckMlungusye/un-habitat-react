@@ -35,7 +35,7 @@ function HomeWebinars() {
 
   return (
     <div className="webinars">
-    <div className="portfolio-header"><span>Technical Webinars</span></div>
+    <div className="portfolio-header"><span>Upcoming Webinars</span></div>
     <div className="webinar-wrapper">
         <div className="webinar-img"><img src={`${ASSET_URL}/extras/${webinarImage}`} alt=""/></div>
         <div className="webinar-content">

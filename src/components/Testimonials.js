@@ -12,7 +12,7 @@ function Testimonials() {
 
     <div className="title">
         <span className="header">Testimonials</span>
-        <p className="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus accusamus rerum vero</p>
+        <p className="desc">Hear from our users</p>
     </div>
 
       <Slider {...settings}>
